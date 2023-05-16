@@ -1,9 +1,12 @@
 package ru.netology;
+import com.google.gson.Gson;
+import java.io.DataInputStream;
+
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Basket implements Serializable{
-    ClientLog clientLog = new ClientLog();
     protected String[] product;
     protected int[] prices;
 
@@ -14,9 +17,6 @@ public class Basket implements Serializable{
     public Basket(String[] product, int[] prices) {
         this.product = product;
         this.prices = prices;
-    }
-
-    public Basket(String basket) {
     }
 
     public void printCart() throws IOException {
@@ -43,8 +43,6 @@ public class Basket implements Serializable{
             }
         }
 
-        clientLog.log(quantit);
-
         basket += ("Итого: " + sumProducts + " руб.");
         System.out.println(basket);
     }
@@ -60,23 +58,33 @@ public class Basket implements Serializable{
         quantity[productNum] += amount;
     }
 
-    public void saveTxt(Basket textFile) throws IOException {
-        Basket printWriter = new Basket(basket);
-
-        FileOutputStream outputStream = new FileOutputStream("C:\\Users\\WWW\\IdeaProjects\\ShopProducts");
-        ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
-
-        objectOutputStream.writeObject(printWriter);
-
-        objectOutputStream.close();
+    public void saveJson(File file){
+        try (PrintWriter writer = new PrintWriter(file)){
+            Gson gson = new Gson();
+            String json = gson.toJson(this);
+            writer.print(json);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    public static Basket loadFromTxtFile(File textFile) throws IOException, ClassNotFoundException {
-        FileInputStream fileInputStream = new FileInputStream("C:\\Users\\WWW\\IdeaProjects\\ShopProducts");
-        ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+    public static Basket loadFromJson(File file){
+        Basket basket = null;
 
-        Basket basket = (Basket) objectInputStream.readObject();
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            StringBuilder builder = new StringBuilder();
 
+            String line = null;
+
+            while ((line = reader.readLine()) != null) {
+                builder.append(line);
+            }
+            Gson json = new Gson();
+            basket = json.fromJson(builder.toString(), Basket.class);
+
+        }catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         return basket;
     }
 }

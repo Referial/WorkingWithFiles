@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8b18d0e9-bae4-4d3b-8c60-d2e3201d7c35" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/shop.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/netology/XMLSettingsReader.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/log.csv" beforeDir="false" afterPath="$PROJECT_DIR$/log.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/netology/Basket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/netology/Basket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/netology/ClientLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/netology/ClientLog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/netology/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/netology/Main.java" afterDir="false" />
