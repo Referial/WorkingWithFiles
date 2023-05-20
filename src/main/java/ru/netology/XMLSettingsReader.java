@@ -11,16 +11,16 @@ import java.io.File;
 import java.io.IOException;
 
 public class XMLSettingsReader {
-    boolean isLoad;
-    String loadFile;
-    String loadFormat;
+    protected boolean isLoad;
+    protected String loadFile;
+    protected String loadFormat;
 
-    boolean isSave;
-    String saveFile;
-    String saveFormat;
+    protected boolean isSave;
+    protected String saveFile;
+    protected String saveFormat;
 
-    boolean isLog;
-    String logFile;
+    protected boolean isLog;
+    protected String logFile;
 
     public XMLSettingsReader(File xmlFile) throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
